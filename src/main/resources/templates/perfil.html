@@ -5,8 +5,13 @@
 <title th:text="${titulo}"></title>
 </head>
 <body>
-<h1 th:text="${titulo}"></h1>
-<span th:text="${usuario.nombre}"></span>
-<span th:text="${usuario.apellido}"></span>
+	<h1 th:text="${titulo}"></h1>
+	<span th:text="${usuario.nombre}"></span>
+	<span th:text="${usuario.apellido}"></span>
+	<br>
+	<!-- Directiva if en thymeleaf se mostrará el espan cuando la condicion de la directiva exista-->
+	<span th:if="${usuario.email}" th:text="${usuario.email}"></span>
+	<!-- else -->
+	<span th:if="${usuario.email == null}"	th:text="'El usuario no tiene correo'"></span>
 </body>
 </html>
