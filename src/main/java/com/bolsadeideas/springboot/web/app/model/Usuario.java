@@ -5,8 +5,18 @@ public class Usuario {
 	public String nombre;
 	public String apellido;
 	public String email;
-	
-	
+
+	public Usuario() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Usuario(String nombre, String apellido, String email) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+	}
+
 	public String getEmail() {
 		return email;
 	}

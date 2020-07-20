@@ -35,10 +35,12 @@ public class IndexController {
 		return "perfil";
 	}
 
-	//
+	//if &  each de thymeleaf
 	@RequestMapping("/listar")
 	public String listar(Model model) {
 		List<Usuario> usuarios = new ArrayList<>();
+		usuarios.add(new Usuario("Andres", "guiado", "andi@gmail.com"));
+		usuarios.add(new Usuario("Pablo", "guiado", "andi@gmail.com"));
 		model.addAttribute("titulo", "Listado de Usuarios");
 		model.addAttribute("usuarios", usuarios);
 
