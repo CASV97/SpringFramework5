@@ -11,6 +11,12 @@
 		 y además a esta ruta le vamos a enviar parámetros, y se indican con los paréntesis (nomParam = 'valor', nomParam2 = val, etc)  -->
 		<li><a th:href="@{/params/string(texto = 'Hola Ariel')}">/params/string?texto=Hola Ariel</a></li>
 		<li><a th:href="@{/params/string(texto = 'Que onda perro!!')}">/params/string?texto=Que onda perro!!</a></li>
+		<li>
+			<a th:href="@{/params/mix-params(saludo = 'Como estás Ariel!!' , numero=7)}">/params/mix-params?saludo=Como estás Ariel!!&numero=7</a>
+		</li>
+		<li>
+			<a th:href="@{/params/mix-params-request(saludo = 'Como estás Ariel!!' , numero=7)}">/params/mix-params-request?saludo=Como estás Ariel!!&numero=7</a>
+		</li>
 	</ul>
 </body>
 </html>
