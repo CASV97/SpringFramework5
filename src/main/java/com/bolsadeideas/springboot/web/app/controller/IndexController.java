@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bolsadeideas.springboot.web.app.model.Usuario;
@@ -35,15 +36,23 @@ public class IndexController {
 		return "perfil";
 	}
 
-	//if &  each de thymeleaf
+	// if & each de thymeleaf
 	@RequestMapping("/listar")
 	public String listar(Model model) {
+		model.addAttribute("titulo", "Listado de Usuarios");
+
+		return "listar";
+	}
+
+	// otra forma de pasar datos a la vista usando la anotacion @ modelAttribute en
+	// un metodo separado o trubuto del model y pasamos el nombre con el que
+	// queremos guardar en la vista, este metodo ta esta disponible para todos los
+	// demas del controlador
+	@ModelAttribute("usuarios")
+	public List<Usuario> poblarUsuarios() {
 		List<Usuario> usuarios = new ArrayList<>();
 		usuarios.add(new Usuario("Andres", "guiado", "andi@gmail.com"));
 		usuarios.add(new Usuario("Pablo", "guiado", "andi@gmail.com"));
-		model.addAttribute("titulo", "Listado de Usuarios");
-		model.addAttribute("usuarios", usuarios);
-
-		return "listar";
+		return usuarios;
 	}
 }
