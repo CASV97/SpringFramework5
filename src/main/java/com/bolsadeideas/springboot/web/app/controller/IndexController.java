@@ -47,7 +47,7 @@ public class IndexController {
 	// otra forma de pasar datos a la vista usando la anotacion @ modelAttribute en
 	// un metodo separado o trubuto del model y pasamos el nombre con el que
 	// queremos guardar en la vista, este metodo ta esta disponible para todos los
-	// demas del controlador
+	// demas del controlador 
 	@ModelAttribute("usuarios")
 	public List<Usuario> poblarUsuarios() {
 		List<Usuario> usuarios = new ArrayList<>();

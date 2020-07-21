@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	<h1 th:text="${titulo}"></h1>
+	<ul>
+		<!-- tienen que ser rutas mapeadas a metodos handler  o de controlador,
+		 y además a esta ruta le vamos a enviar parámetros, y se indican con los paréntesis (nomParam = 'valor', nomParam2 = val, etc)  -->
+		<li><a th:href="@{/params/string(texto = 'Hola Ariel')}">/params/string?texto=Hola Ariel</a></li>
+		<li><a th:href="@{/params/string(texto = 'Que onda perro!!')}">/params/string?texto=Que onda perro!!</a></li>
+	</ul>
+</body>
+</html>
