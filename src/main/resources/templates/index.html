@@ -7,7 +7,7 @@
 </head>
 <body>
 	<h1 th:text="${titulo}"></h1>
-	<table th:if="${!usuarios.isEmpty()}">
+	<table th:if="${usuarios.size() > 0}">
 		<thead>
 			<tr>
 				<th>nombre</th>
