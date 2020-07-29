@@ -18,7 +18,8 @@ import com.bolsadeideas.springboot.web.app.model.Usuario;
 public class IndexController {
 	/*
 	 * Con spring boot podemos desacoplar los textos del controlador y llevarlos al
-	 * properties o a un fichero, utilizando la anotación @value
+	 * properties o a un fichero, utilizando la anotación @value con esto injectamos
+	 * los valores del properties
 	 */
 	@Value("${indexcontroller.index.titulo}")
 	private String tituloIndex;
