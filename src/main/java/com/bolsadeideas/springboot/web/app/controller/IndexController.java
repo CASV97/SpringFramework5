@@ -3,6 +3,7 @@ package com.bolsadeideas.springboot.web.app.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +16,23 @@ import com.bolsadeideas.springboot.web.app.model.Usuario;
 @Controller
 @RequestMapping("/app")
 public class IndexController {
+	/*
+	 * Con spring boot podemos desacoplar los textos del controlador y llevarlos al
+	 * properties o a un fichero, utilizando la anotación @value
+	 */
+	@Value("${indexcontroller.index.titulo}")
+	private String tituloIndex;
+
+	@Value("${indexcontroller.perfil.titulo}")
+	private String tituloPerfil;
+
+	@Value("${indexcontroller.listar.titulo}")
+	private String tituloListar;
+
 	@GetMapping({ "/index", "/", "home", "" })
 	public String showIndex(Model model) {
 
-		model.addAttribute("titulo", "Hola Spring framework");
+		model.addAttribute("titulo", tituloIndex);
 		return "index";
 	}
 
@@ -31,7 +45,7 @@ public class IndexController {
 		usuario.setApellido("Salazar");
 		usuario.setEmail("ariel-w@hotmail.com");
 		model.addAttribute("usuario", usuario);
-		model.addAttribute("titulo", "Perfil de usuario: ".concat(usuario.getNombre()));
+		model.addAttribute("titulo", tituloPerfil.concat(usuario.getNombre()));
 
 		return "perfil";
 	}
@@ -39,7 +53,7 @@ public class IndexController {
 	// if & each de thymeleaf
 	@RequestMapping("/listar")
 	public String listar(Model model) {
-		model.addAttribute("titulo", "Listado de Usuarios");
+		model.addAttribute("titulo", tituloListar);
 
 		return "listar";
 	}
@@ -47,7 +61,7 @@ public class IndexController {
 	// otra forma de pasar datos a la vista usando la anotacion @ modelAttribute en
 	// un metodo separado o trubuto del model y pasamos el nombre con el que
 	// queremos guardar en la vista, este metodo ta esta disponible para todos los
-	// demas del controlador 
+	// demas del controlador
 	@ModelAttribute("usuarios")
 	public List<Usuario> poblarUsuarios() {
 		List<Usuario> usuarios = new ArrayList<>();
